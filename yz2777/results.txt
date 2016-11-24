@@ -1,0 +1,4 @@
+Position: 1, Position Value: $1000.0, Mean: 0.0142, Standard Deviation: 0.9998991749171514
+Position: 10, Position Value: $100.0, Mean: 0.01665999999999999, Standard Deviation: 0.3158202723068929
+Position: 100, Position Value: $10.0, Mean: 0.01941600000000001, Standard Deviation: 0.09935743024052103
+Position: 1000, Position Value: $1.0, Mean: 0.019743000000000017, Standard Deviation: 0.03222631147059808
