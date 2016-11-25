@@ -18,13 +18,13 @@ def check_positions_value(positions):
             raise ValueError("Not a valid position. The allowed positions are [1, 10, 100, 1000].")
 
 
-def check_trials_instance(trials):
-    if not isinstance(trials, int):
+def check_trials_instance(num_trials):
+    if not isinstance(num_trials, int):
         raise ValueError("The number of \"trials\" should be an integer.")
 
 
-def check_trials_positive(trials):
-    if trials <= 0:
+def check_trials_positive(num_trials):
+    if num_trials <= 0:
         raise ValueError(
             "The number of \"trials\" should be greater than 0. The current value passed is \"%s\" " % str(
-                trials))
+                num_trials))
