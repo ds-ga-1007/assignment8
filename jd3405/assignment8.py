@@ -35,7 +35,7 @@ def solve(positions, num_trials):
         plt.show()
 
 
-def trans_to_int(s):
+def trans_to_int(s, tot=0):
     """handle the invalid input exception"""
     # empty string
     if len(s) == 0:
@@ -46,8 +46,11 @@ def trans_to_int(s):
             raise InvalidInputException
     ret = int(s)
     # zero or can not divide 1000
-    if ret == 0 or 1000 % ret != 0:
+    if ret == 0:
         raise InvalidInputException
+    if tot > 0:
+        if tot % ret != 0:
+            raise InvalidInputException
     return ret
 
 
@@ -65,7 +68,11 @@ def main():
                 print("Input is invalid")
                 return
         trial_input = input("Input number of trials:")
-        num_trials = int(trial_input)
+        try:
+            num_trials = trans_to_int(trial_input)
+        except InvalidInputException:
+            print("Input is invalid")
+            return
         solve(positions, num_trials)
 
 
