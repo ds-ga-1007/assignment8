@@ -31,6 +31,7 @@ def is_int(s):
         return True
     except ValueError:
         return False
+
 def reading_in(positions,num_trials):
     '''
     This function handles with the interaction with user.  
@@ -42,8 +43,7 @@ def reading_in(positions,num_trials):
         num_trials: how many times to randomly repeat the test
     Raises:
         InputError
-    '''
-    
+    '''  
     positions = positions.split(',')
     num_shares=[]
     for num in positions:
@@ -57,7 +57,8 @@ def reading_in(positions,num_trials):
     else:
         raise InputError
     return num_shares, num_trials
-def generate_report(daily_ret,pos):
+
+def generate_report(file,daily_ret,pos):
     '''
     This function generates reports for each simulation.
     The numerical results with mean and variance of each simulation save in a file, results.txt.
@@ -67,13 +68,14 @@ def generate_report(daily_ret,pos):
        pos: one position 
     Returns:
     Raises:
-
     '''
+    file.write(''.join(["Position:", str(pos)]))
+    file.write('  '.join([" Mean:", str(daily_ret.mean())]))
+    file.write('  '.join([" Standard Deviation:", str(daily_ret.std()), '\n']))
+        
     hist_figure=plt.figure()
     plt.hist(daily_ret,100,range=[-1,1])
     hist_figure.savefig(''.join(['histogram_', str(pos).zfill(4),'_pos.pdf']))
-
-
 
 def investment_simulation():
     '''
@@ -104,13 +106,7 @@ def investment_simulation():
         cumu_ret=simulation(pos,1000/pos).outcome_total(num_trials)
         cumu_ret=np.array(cumu_ret)
         daily_ret=(cumu_ret/1000) - 1
-        
-        file.write(''.join(["Position:", str(pos)]))
-        file.write('  '.join([" Mean:", str(daily_ret.mean())]))
-        file.write('  '.join([" Standard Deviation:", str(daily_ret.std()), '\n']))
-        
-        generate_report(daily_ret,pos)
-        
+        generate_report(file,daily_ret,pos)
     file.close()
     print('Finish!')
     
