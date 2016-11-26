@@ -89,7 +89,6 @@ def receive_positions_input() -> List[int]:
             sys.exit(1)
 
         try:
-
             # Attempt to parse user-provided positions.
             positions = parse_positions(response)
 
@@ -100,6 +99,30 @@ def receive_positions_input() -> List[int]:
         # Inform user of their invalid entry and repeat.
         except InvalidPositionException as ipe:
             print(ipe, file=sys.stderr)
+
+
+def prompt_input(prompt):
+    """Modular way to get a user's response that also handles exceptions.
+
+    :param prompt: string shown to user describing what to respond with.
+    :return: string representation of user's response.
+    """
+
+    try:
+        # Prompt user for their input response.
+        response = input(prompt)
+
+        # Return user's response, if we make it this far.
+        return response
+
+    # Handle termination errors and interrupts.
+    except EOFError:
+        print("")
+        sys.exit(1)
+
+    except (KeyboardInterrupt, SystemExit):
+        print("")
+        sys.exit(1)
 
 
 def parse_positions(positions: str) -> List[int]:
@@ -116,14 +139,8 @@ def parse_positions(positions: str) -> List[int]:
     # Evaluate each proposed position.
     for position in split:
 
-        # If our regular expression matches the proposed trial count,
-        # return its integer representation as our accepted trial count.
-        # This expression handles:
-        # \s*    Any leading whitespace (e.g. '   10')
-        # [+]?   An optional indication of positive-signed integer.
-        # [\d]+  One or more digit values in the interval [0, 9].
-        # \s*    Any trailing whitespace (e.g. '10      ')
-        # Note: our expression does not accepts negative positions (e.g. '-20').
+        # Run both regular expressions on our proposed position.
+        # If only expected_match() matches, our position is valid.
         if expected_match(position) and not float_match(position):
             valid_positions.append(int(position))
 
@@ -194,7 +211,6 @@ def receive_num_trials_input() -> int:
             sys.exit(1)
 
         try:
-
             # Attempt to parse user-provided simulation count.
             num_trials = parse_trial(response)
 
@@ -207,31 +223,6 @@ def receive_num_trials_input() -> int:
             print(ite, file=sys.stderr)
 
 
-def prompt_input(prompt):
-    """Modular way to get a user's response that also handles exceptions.
-
-    :param prompt: string shown to user describing what to respond with.
-    :return: string representation of user's response.
-    """
-
-    try:
-
-        # Prompt user for their input response.
-        response = input(prompt)
-
-        # Return user's response, if we make it this far.
-        return response
-
-    # Handle termination errors and interrupts.
-    except EOFError:
-        print("")
-        sys.exit(1)
-
-    except (KeyboardInterrupt, SystemExit):
-        print("")
-        sys.exit(1)
-
-
 def parse_trial(trial: str) -> int:
     """Validate our user's proposed simulation count. Reject if invalid.
 
@@ -239,19 +230,13 @@ def parse_trial(trial: str) -> int:
     :return: integer-casted :trial if valid. Raises exception if invalid.
     """
 
-    # If our regular expression matches the proposed trial count,
-    # return its integer representation as our accepted trial count.
-    # This expression handles:
-    # \s*    Any leading whitespace (e.g. '   10')
-    # [+]?   An optional indication of positive-signed integer.
-    # [\d]+  One or more digit values in the interval [0, 9].
-    # \s*    Any trailing whitespace (e.g. '10      ')
-    # Note: our expression does not accepts negative trial counts (e.g. '-20').
+    # Run both regular expressions on our proposed position.
+    # If only expected_match() matches, our position is valid.
     if expected_match(trial) and not float_match(trial):
         return int(trial)
 
     else:
-        # Raise exception if any position in positions is invalid.
+        # Raise exception if our trial is invalid.
         raise InvalidTrialException(trial)
 
 
