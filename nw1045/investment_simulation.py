@@ -31,20 +31,19 @@ def is_int(s):
         return True
     except ValueError:
         return False
-def reading_in():
+def reading_in(positions,num_trials):
     '''
     This function handles with the interaction with user.  
     Args:
+        positions
+        num_trials
     Returns:
         num_shares: a list of shares for each simulation 
         num_trials: how many times to randomly repeat the test
     Raises:
         InputError
-        QuitSimulation
     '''
-    positions = input("List of Numbers: ")
-    if positions.upper() == 'QUIT':
-        raise QuitSimulation
+    
     positions = positions.split(',')
     num_shares=[]
     for num in positions:
@@ -52,9 +51,7 @@ def reading_in():
             num_shares.append(int(num))
         else:
             raise InputError
-    num_trials = input('How many times to randomly repeat the test? ')
-    if num_trials.upper() == 'QUIT':
-        raise QuitSimulation
+   
     if is_int(num_trials):
             num_trials=int(num_trials)
     else:
@@ -84,6 +81,7 @@ def investment_simulation():
     Args:
     Returns:
     Raises:
+        QuitSimulation
     '''
     print('This is a simulation of investments.')
     print('You can exit with "QUIT".')
@@ -91,17 +89,22 @@ def investment_simulation():
     print('You can purchase it in $1, $10, $100, and $1000 denominations.')
     while True:
         try:
-            num_shares, num_trials = reading_in()
+            positions = input("List of Numbers: ")
+            if positions.upper() == 'QUIT':
+                raise QuitSimulation
+            num_trials = input('How many times to randomly repeat the test? ')
+            if num_trials.upper() == 'QUIT':
+                raise QuitSimulation
+            num_shares, num_trials = reading_in(positions,num_trials)
             break
         except InputError:
             print('Invalid Input!\n Please according to the instruction!')
     file=open('results.txt','w')
     for pos in num_shares:
-        #for trial in num_trials:
-        #    cumu_ret[trial] = simulation(pos,1000/pos).outcome()
-        cumu_ret=[simulation(pos,1000/pos).outcome() for trial in range(0,num_trials)]
+        cumu_ret=simulation(pos,1000/pos).outcome_total(num_trials)
         cumu_ret=np.array(cumu_ret)
         daily_ret=(cumu_ret/1000) - 1
+        
         file.write(''.join(["Position:", str(pos)]))
         file.write('  '.join([" Mean:", str(daily_ret.mean())]))
         file.write('  '.join([" Standard Deviation:", str(daily_ret.std()), '\n']))
