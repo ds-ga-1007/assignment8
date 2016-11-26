@@ -36,7 +36,11 @@ class Investment:
 
 
 def biased_gamble(times: int):
-    """Perform :times draws from a biased distribution."""
+    """Perform :times draws from a biased distribution.
+
+    :param times: number of times we'd like to draw from distribution.
+    :return: numpy array where ~49% = 0 and ~51% = 2.
+    """
 
     # As per assignment instructions:
     #   Probability our investment is a failure: 49%. (P(0) = 0.49)

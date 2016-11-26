@@ -13,4 +13,3 @@ class InvestmentPositionException(InvestmentError):
     def __str__(self):
         return "Attempted to hold an invalid investment amount '{}'. " \
                "Make sure investment is a positive value.".format(self.invalid_position)
-
