@@ -1,6 +1,7 @@
 import sys
 import Position
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # prompt_user is the main function that a user interacts with to create intervals
@@ -38,6 +39,7 @@ def prompt_user():
     #daily_ret = np.empty(num_trials)
     cumu_ret = np.empty((num_trials, len(positions)))
     daily_ret = np.empty((num_trials, len(positions)))
+    
     for trial in range(num_trials):
         for pos_idx, position in enumerate(positions):
             position.total_value = 0             
@@ -45,7 +47,17 @@ def prompt_user():
             pos_ret[trial, pos_idx] = position.total_value
         cumu_ret[trial] = pos_ret[trial,:]
         daily_ret[trial] = (cumu_ret[trial]/1000) - 1
-        
+    for pos_idx in range(len(positions)):
+        ret_vals = daily_ret[:,pos_idx]
+        plt.hist(ret_vals,100,range=[-1.1,1.1])
+        plt.title('number of shares at ' + str(positions[pos_idx].num_shares) + \
+                 ' share value at ' + str(positions[pos_idx].share_value) + \
+                 '\nnumtrials: ' + str(num_trials))
+        numsharesdisplay = str(positions[pos_idx].num_shares)
+        while len(numsharesdisplay) < 4:
+            numsharesdisplay = '0' + numsharesdisplay
+        plt.savefig('histogram_' + numsharesdisplay + '_pos.pdf', format='pdf')
+        plt.show()
     print(daily_ret)
 
 
