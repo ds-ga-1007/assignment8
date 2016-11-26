@@ -12,7 +12,7 @@ class InvalidPositionException(UserError):
 
     def __str__(self):
         return "You've provided an invalid position: '{}'. " \
-               "Try passing a comma-separated list of numbers (e.g. '1, 10, 100').".format(self.invalid_position)
+               "Try passing a list of positive integers (e.g. '1, 10, 100').".format(self.invalid_position)
 
 
 class InvalidTrialException(UserError):

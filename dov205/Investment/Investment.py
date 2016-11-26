@@ -27,7 +27,7 @@ class Investment:
         :return: raises InvalidInvestmentException if invalid, otherwise continues construction
         """
 
-        if type(position) not in [int, float]:
+        if type(position) not in [int, float] or position < 0:
             raise InvestmentPositionException(position)
 
     def __repr__(self):

@@ -89,6 +89,7 @@ def receive_positions_input() -> List[int]:
             sys.exit(1)
 
         try:
+
             # Attempt to parse user-provided positions.
             positions = parse_positions(response)
 
@@ -115,22 +116,62 @@ def parse_positions(positions: str) -> List[int]:
     # Evaluate each proposed position.
     for position in split:
 
-        # If our regular expression matches the proposed position,
-        # add its integer representation to our list of valid positions.
+        # If our regular expression matches the proposed trial count,
+        # return its integer representation as our accepted trial count.
         # This expression handles:
         # \s*    Any leading whitespace (e.g. '   10')
         # [+]?   An optional indication of positive-signed integer.
-        # [\d]+  One or more digit values [0-9].
+        # [\d]+  One or more digit values in the interval [0, 9].
         # \s*    Any trailing whitespace (e.g. '10      ')
-        # Note: our expression does not accept negative inputs.
-        if re.match(r'\s*[+]?[\d]+\s*', position) is not None:
+        # Note: our expression does not accepts negative positions (e.g. '-20').
+        if expected_match(position) and not float_match(position):
             valid_positions.append(int(position))
 
         else:
             # Raise exception if any position in positions is invalid.
-            raise InvalidPositionException(position)
+            raise InvalidPositionException(position.strip())
 
     return valid_positions
+
+
+def expected_match(user_input):
+    """Perform first-pass pattern-match against user input.
+
+    :param user_input: user-provided position or trial input.
+    :return: boolean denoting whether our traditional-matching succeeded (true).
+    """
+
+    # Return whether our expression matches the proposed input.
+    # If it *does*, we have a valid input that should be further
+    # evaluated in float_match().
+    # This expression handles:
+    # \s*    Any leading whitespace (e.g. '   10')
+    # [+]?   An optional indication of positive-signed integer.
+    # [0]*   Zero or more leading zeros.
+    # [1-9]  Single match on digits in the interval [1, 9]
+    # [\d]*  Zero or more digit values in the interval [0, 9].
+    # \s*    Any trailing whitespace (e.g. '10      ')
+    # Note: our expression does not accept negative positions (e.g. '-20').
+    return re.match(r'\s*[+]?[0]*[1-9][\d]*\s*', user_input) is not None
+
+
+def float_match(user_input):
+    """Perform second-pass match to detect float-y input.
+
+    :param user_input: user-provided position or trial input.
+    :return: boolean denoting whether our float-matching succeeded (true).
+    """
+
+    # Return whether our expression matches the proposed input.
+    # If it *does*, we have a valid input that can be accepted.
+    # \s*    Any leading whitespace (e.g. '   10')
+    # [+]?   An optional indication of positive-signed integer.
+    # [0]*   Zero or more leading zeros.
+    # [1-9]  Single match on digits in the interval [1, 9]
+    # [\d]*  Zero or more digit values in the interval [0, 9].
+    # \s*    Any trailing whitespace (e.g. '10      ')
+    # Note: our expression does not accepts negative positions (e.g. '-20').
+    return re.match(r'\s*[+]?[0]*[1-9][\d]*\.[\d]*\s*', user_input) is not None
 
 
 def receive_num_trials_input() -> int:
@@ -153,6 +194,7 @@ def receive_num_trials_input() -> int:
             sys.exit(1)
 
         try:
+
             # Attempt to parse user-provided simulation count.
             num_trials = parse_trial(response)
 
@@ -173,16 +215,20 @@ def prompt_input(prompt):
     """
 
     try:
+
+        # Prompt user for their input response.
         response = input(prompt)
+
+        # Return user's response, if we make it this far.
         return response
 
-        # Handle miscellaneous errors and interrupts.
+    # Handle termination errors and interrupts.
     except EOFError:
-        print("\n")
+        print("")
         sys.exit(1)
 
     except (KeyboardInterrupt, SystemExit):
-        print("\n")
+        print("")
         sys.exit(1)
 
 
@@ -198,10 +244,10 @@ def parse_trial(trial: str) -> int:
     # This expression handles:
     # \s*    Any leading whitespace (e.g. '   10')
     # [+]?   An optional indication of positive-signed integer.
-    # [\d]+  One or more digit values [0-9].
+    # [\d]+  One or more digit values in the interval [0, 9].
     # \s*    Any trailing whitespace (e.g. '10      ')
-    # Note: our expression does not accept negative trial count inputs.
-    if re.match(r'\s*[+]?[\d]+\s*', trial) is not None:
+    # Note: our expression does not accepts negative trial counts (e.g. '-20').
+    if expected_match(trial) and not float_match(trial):
         return int(trial)
 
     else:
