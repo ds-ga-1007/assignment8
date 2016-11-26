@@ -1,0 +1,8 @@
+The mean of daily return for positon 1 is 0.0024
+The standard deviation of daily return for positon 1 is 0.9999971199958527
+The mean of daily return for positon 10 is 0.02591999999999999
+The standard deviation of daily return for positon 10 is 0.3132413663614689
+The mean of daily return for positon 100 is 0.018832000000000012
+The standard deviation of daily return for positon 100 is 0.10077775437069433
+The mean of daily return for positon 1000 is 0.019874000000000017
+The standard deviation of daily return for positon 1000 is 0.03170836047480225
