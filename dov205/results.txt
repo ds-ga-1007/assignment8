@@ -1,4 +1,4 @@
-For position =    1: mean = 0.0166, standard deviation = 0.9999.
-For position =   10: mean = 0.0241, standard deviation = 0.3134.
-For position =  100: mean = 0.02024, standard deviation = 0.1002.
-For position = 1000: mean = 0.01971, standard deviation = 0.03164.
+For position =    1: mean = 0.0148, standard deviation = 0.9999.
+For position =   10: mean = 0.02006, standard deviation = 0.316.
+For position =  100: mean = 0.02208, standard deviation = 0.09898.
+For position = 1000: mean = 0.02014, standard deviation = 0.0318.

@@ -1,3 +1,36 @@
+"""
+    Author:
+        Danny Vilela
+
+    Program Behavior:
+        This script can be run from the terminal like so:
+
+            $ python assignment8.py
+
+        The program will prompt you (the user) for a list of positions. Until
+        the user-provided input is valid, the program will either (1) terminate
+        if you provide 'q', 'quit', or 'exit' or (2) continue to prompt the user
+        for valid input while demonstrating what was invalid in the most recent input.
+
+        Next, the program will prompt you for a valid simulation count. This
+        validation follows effectively the same validation schema as before: it
+        will terminate if you indicate a common termination synonym, tell you
+        what was incorrect about your most recent input, or continue with valid
+        inputs.
+
+        The program uses the above two components in order to perform its
+        simulations. All output files are written to the local directory.
+
+    Efficiency:
+        On my machine, running the full-fledged simulation in IPython:
+
+            %timeit simulate([1, 10, 100, 1000], 10000)
+
+        takes approximately 2.35 seconds. I figure this is efficient enough.
+        There *is* room for improvement: I believe utilizing numpy's
+        broadcasting would allow us to get this done in under 2 seconds.
+"""
+
 from Investment.Investment import *
 from Investment.UserError import *
 
@@ -48,18 +81,8 @@ def receive_positions_input() -> List[int]:
     # Ad-infinitum.
     while True:
 
-        try:
-            # Prompt our user for input.
-            response = input(prompt)
-
-        # Handle miscellaneous errors and interrupts.
-        except EOFError:
-            print("\n")
-            sys.exit(1)
-
-        except (KeyboardInterrupt, SystemExit):
-            print("\n")
-            sys.exit(1)
+        # Prompt our user for input.
+        response = prompt_input(prompt)
 
         # Quit if user wants to quit.
         if response.lower() in ['q', 'quit', 'exit']:
@@ -122,18 +145,8 @@ def receive_num_trials_input() -> int:
     # Ad-infinitum.
     while True:
 
-        try:
-            # Prompt our user for input.
-            response = input(prompt)
-
-        # Handle miscellaneous errors and interrupts.
-        except EOFError:
-            print("\n")
-            sys.exit(1)
-
-        except (KeyboardInterrupt, SystemExit):
-            print("\n")
-            sys.exit(1)
+        # Prompt our user for input.
+        response = prompt_input(prompt)
 
         # Quit if user wants to quit.
         if response.lower() in ['q', 'quit', 'exit']:
@@ -150,6 +163,27 @@ def receive_num_trials_input() -> int:
         # Inform user of their invalid entry and repeat.
         except InvalidTrialException as ite:
             print(ite, file=sys.stderr)
+
+
+def prompt_input(prompt):
+    """Modular way to get a user's response that also handles exceptions.
+
+    :param prompt: string shown to user describing what to respond with.
+    :return: string representation of user's response.
+    """
+
+    try:
+        response = input(prompt)
+        return response
+
+        # Handle miscellaneous errors and interrupts.
+    except EOFError:
+        print("\n")
+        sys.exit(1)
+
+    except (KeyboardInterrupt, SystemExit):
+        print("\n")
+        sys.exit(1)
 
 
 def parse_trial(trial: str) -> int:
