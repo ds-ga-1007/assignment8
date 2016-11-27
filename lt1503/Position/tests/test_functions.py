@@ -1,5 +1,6 @@
 import unittest
 from Position.Position import *
+from Position.Position_functions import *
 
 #The following are test cases to ensure correct functionality of intervals
 class MyTest(unittest.TestCase):

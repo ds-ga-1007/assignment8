@@ -35,7 +35,7 @@ def prompt_user_for_positions():
 
 
 if __name__ == '__main__':
-    """collect user input about investment options, then process them
-    ans store output values"""
+    """collect user input about investment options, then evaluate how 
+    they perform over a day's random outcomes and store results to file"""
     positions, num_trials = prompt_user_for_positions()
     Position.process_one_day(positions = positions, num_trials = num_trials)
