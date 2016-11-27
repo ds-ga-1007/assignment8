@@ -1,6 +1,7 @@
 import sys
 import Position
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 
@@ -57,8 +58,16 @@ def prompt_user():
         while len(numsharesdisplay) < 4:
             numsharesdisplay = '0' + numsharesdisplay
         plt.savefig('histogram_' + numsharesdisplay + '_pos.pdf', format='pdf')
-        plt.show()
-    print(daily_ret)
+        #plt.show()
+
+    means = np.mean(daily_ret, 0)
+    stds = np.std(daily_ret, 0)
+    
+    num_shares = [position.num_shares for position in positions]
+    res = np.array((num_shares, means, stds))
+    df = pd.DataFrame(np.round(res, 3), index = ['num shares', 'means', 'stds'])
+
+    df.to_csv(r'results.txt', header = False)
 
 
 if __name__ == '__main__':
