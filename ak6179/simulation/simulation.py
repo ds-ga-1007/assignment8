@@ -48,13 +48,13 @@ class Simulation(object):
         self._mean_ret = np.mean(self._daily_ret, axis=0)
         self._std_ret = np.std(self._daily_ret, axis=0)
 
-    def simulate(self):
+    def simulate(self, bias=0.51):
         for trial in range(self._num_trials):
             for i, (position, value) in enumerate(zip(self._positions, self._position_values)):
                 cumulative_return = 0
                 for p in range(position):
                     p_return = np.random.random()
-                    if p_return < 0.51:
+                    if p_return < bias:
                         cumulative_return += 2.0 * value
                 self._cumu_ret[trial, i] = cumulative_return
                 daily_return = (cumulative_return / 1000.0) - 1
@@ -67,18 +67,18 @@ class Simulation(object):
     def std_dev_returns(self):
         return self._std_ret
 
-    def write_summary(self, filename):
-        with open(filename, "w") as f:
+    def write_summary(self, filepath):
+        with open(filepath, "w") as f:
             f.write("positions: " + str(self._positions) + "\n")
             f.write("num_trials: " + str(self._num_trials) + "\n")
             for i, p in enumerate(self._positions):
                 f.write("position: " + str(p) + ", mean return: " + str(
                     self._mean_ret[i]) + ", standard deviation of return: " + str(self._std_ret[i]) + "\n")
 
-    def plot_trials_histogram(self, filepath_prefix):
-        for i, position in enumerate(self._positions):
+    def plot_trials_histogram(self, filepaths):
+        for i, path in enumerate(filepaths):
             plt.hist(self._daily_ret[:, i], 100, range=[-1, 1])
             plt.xlabel("return on investment")
             plt.ylabel("count of trials")
-            plt.savefig(filepath_prefix + '{:04d}'.format(position) + "_pos.pdf", format='pdf')
+            plt.savefig(path, format='pdf')
             plt.clf()

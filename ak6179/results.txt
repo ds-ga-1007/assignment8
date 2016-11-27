@@ -1,6 +1,6 @@
 positions: [1, 10, 100, 1000]
 num_trials: 10000
-position: 1, mean return: 0.0222, standard deviation of return: 0.999753549631
-position: 10, mean return: 0.02388, standard deviation of return: 0.314715340586
-position: 100, mean return: 0.019282, standard deviation of return: 0.0999600143858
-position: 1000, mean return: 0.0194784, standard deviation of return: 0.0311763746039
+position: 1, mean return: 0.0022, standard deviation of return: 0.999997579997
+position: 10, mean return: 0.01668, standard deviation of return: 0.316975988996
+position: 100, mean return: 0.018022, standard deviation of return: 0.0998829690988
+position: 1000, mean return: 0.0196822, standard deviation of return: 0.0314468727087

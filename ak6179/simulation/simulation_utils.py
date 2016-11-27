@@ -26,5 +26,5 @@ def check_trials_instance(num_trials):
 def check_trials_positive(num_trials):
     if num_trials <= 0:
         raise ValueError(
-            "The number of \"trials\" should be greater than 0. The current value passed is \"%s\" " % str(
+            "The number of \"trials\" should be greater than 0. The current value passed is \"%s\"." % str(
                 num_trials))
