@@ -6,6 +6,8 @@ Utilities for Simulation class.
 def check_positions_instance(positions):
     if not isinstance(positions, list):
         raise ValueError("\"positions\" should be a list of positive integers.")
+    if len(positions) == 0:
+        raise ValueError("\"positions\" is empty. It should be a non-empty list of positive integers.")
     for i, p in enumerate(positions):
         if not isinstance(p, int):
             raise ValueError("Elements in \"positions\" should be integers.")

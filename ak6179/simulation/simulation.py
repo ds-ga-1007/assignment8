@@ -1,8 +1,6 @@
 """
-TODO: Describe the behavior here. Also mention that you have adapted the pattern for documentation, comments
-from the sklearn class. Mention that numpy and matplotlib packages are required to be installed
+Simulation class for investment instrument. Requires numpy and matplotlib to be installed.
 """
-# Author: Abhishek Kadian <ak6179@nyu.edu>
 
 from . import simulation_utils as utils
 import numpy as np
@@ -10,10 +8,6 @@ from matplotlib import pyplot as plt
 
 
 class Simulation(object):
-    """
-    Simulation class for the investment instrument.
-    """
-
     @property
     def cumu_ret(self):
         return self._cumu_ret
