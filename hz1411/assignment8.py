@@ -3,8 +3,8 @@ author: Han Zhao
 email: hz1411@nyu.edu
 
 This is the main program that keep prompting for user input until the input is valid, 
-or the user enters "quit" to exit. Then it calls the trail class and do the investment
-trail, calculate mean & std, plot histogram and write output to txt file.
+or the user enters "quit" to exit. Then it calls the trial class and do the investment
+trial, calculate mean & std, plot histogram and write output to txt file.
 
 '''
 
