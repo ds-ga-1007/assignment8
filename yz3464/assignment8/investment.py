@@ -7,9 +7,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class investment:
-    def _init_(self, num_trials, positions):
-        self.positions = positions#a list of the number of shares to buy in parallel:
-        self.num_trials = num_trials#how many times to randomly repeat the test
+    def __init__(self, num_trials, positions):
+        self.positions = positions #a list of the number of shares to buy in parallel:
+        self.num_trials = num_trials #how many times to randomly repeat the test
         
     @staticmethod
     def simulateInvestment(investment):
@@ -19,19 +19,18 @@ class investment:
         trial_num = investment.num_trials
         positions_num = investment.positions
         value = 1000 / positions_num #even value
+        
         cumu_ret = np.zeros(trial_num) #total income of one day
         daily_ret = np.zeros(trial_num)#the result of each day
         
         for trial in range(trial_num):
             temp = 0
             for pos in range(positions_num):
-                rand = np.random.uniform(0,1)
-                if rand <= 0.51:
+                rando = np.random.uniform(0,1)
+                if rando <= 0.51:
                     temp = temp + value*2
-                else:
-                    temp = temp + 0
                 cumu_ret[trial] = temp
-            daily_ret[trial] = (cumu_ret[trial]/1000) - 1
+            daily_ret[trial] = (cumu_ret[trial] / 1000.0) - 1.0
         return daily_ret
     
     
@@ -40,7 +39,7 @@ class investment:
         '''
         plot the histgram of daily outcome of each trial and save it to the filename inputed
         '''
-        daily_ret = investment.simulateInvestment(investment(position,num_trials))
+        daily_ret = investment.simulateInvestment(investment(num_trials, position))
         fig, ax = plt.subplots(nrows=1, ncols=1)
         fig.set_size_inches(12, 12)
         ax.hist(daily_ret, 100, range=[-1, 1])
@@ -55,16 +54,10 @@ class investment:
         '''
         f = open('result.txt', 'w')
         for p in positions:
-            daily_ret = investment.simulateInvestment(investment(p,num_trials))
+            daily_ret = investment.simulateInvestment(investment(num_trials, p))
+            print(daily_ret)
             mean = str(np.mean(daily_ret))
             std = str(np.std(daily_ret))
-            file.write("position " + str(p) + ", mean: " + mean + ", std:  " + str + "\r\n")
+            f.write("The position " + str(p) + "'s mean is " + mean + " with std " + std + "\r\n")
             f.flush()
         f.close()
-        
-            
-            
-            
-            
-        
-        

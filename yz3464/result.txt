@@ -1,0 +1,4 @@
+The position 1's mean is 0.0134 with std 0.999910215969
+The position 10's mean is 0.01714 with std 0.320646566175
+The position 100's mean is 0.020316 with std 0.0995894579963
+The position 1000's mean is 0.0200172 with std 0.0320139048565
