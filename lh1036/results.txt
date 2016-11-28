@@ -1,3 +1,4 @@
-1 shares of $1000: {'standard deviation': 0.9797958971132713, 'mean': -0.2}
-10 shares of $100: {'standard deviation': 0.2683281572999747, 'mean': -2.2204460492503132e-17}
-100 shares of $10: {'standard deviation': 0.10285912696499032, 'mean': 0.050000000000000024}
+1 shares of $1000: {'standard deviation': 0.9995498987044118, 'mean': 0.03}
+10 shares of $100: {'standard deviation': 0.3160885319020606, 'mean': 0.01979999999999999}
+100 shares of $10: {'standard deviation': 0.09918381059426988, 'mean': 0.02115400000000001}
+1000 shares of $1: {'standard deviation': 0.03137754734583316, 'mean': 0.019898400000000017}
