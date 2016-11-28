@@ -12,9 +12,8 @@ Certain rules of the assignment applies:
 
 We have $1000 to invest on the first day.
 
- will run a simulation to determine how to make that investment on the first day. 
- i.e. Should we make a single $1000 investment, or 1000 $1 investments. 
- (or something in between)
+This module will produce one pdf for each position input, and a text file that contains mean and standard deviation.
+
 @author: Qianyu Cheng
 """
 import numpy as np
@@ -30,6 +29,7 @@ if __name__ == '__main__':
     while True:
 
         try:
+
             positions = input('Hello my friend. Welcome to investment world. '
                               'Please input a list of denominations. e.g. [1, 10, 100, 1000]'
                               'Enter "quit" to stop the program.')
@@ -38,7 +38,7 @@ if __name__ == '__main__':
             if positions == 'quit':
                 break
 
-            #################Input Validation####################
+            # Input set of positions in parallels
 
             positions_set = investment_input_pos(positions)
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
             trials = investment_input_trials(num_trials)
 
-            #################Output text and pdf#################
+            # Output text and pdf files for each position in positions_set.
             investment_output(positions_set,trials)
 
         # Catch End of File error.

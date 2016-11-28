@@ -20,11 +20,16 @@ def investment_input_pos(positions):
     if not re.match(r'^[\[]\d+(\,\d+)*[\]]$', positions):
         raise InputErrorPositions
 
+    # Get all numbers
     positions_set = re.findall(r'\d+', positions)
+
+    # Find out if all numbers are within 1, 10, 100, 1000 since these are all denominations available.
 
     for i in range(len(positions_set)):
         if positions_set[i] not in ['1', '10', '100', '1000']:
             raise InputErrorPositions
+
+    # Return the cleansed positions sets.
 
     return positions_set
 
@@ -60,6 +65,7 @@ def investment_output(positions_set,trials):
     # Run each value in positions_set that we got from user input.
 
     for val in positions_set:
+
         # Run the program inside investment_daily class
 
         daily_ret = investment_daily(int(val), trials).one_day()
