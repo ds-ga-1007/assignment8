@@ -1,5 +1,7 @@
 """
 Define a class investment that calculate the result of a one day investment.
+
+@author: Qianyu Cheng
 """
 import numpy as np
 import pandas as pd
@@ -24,12 +26,16 @@ class investment_daily(object):
         """
         Function that return a numpy array: that contains the daily returns for the number of trials simulations.
         """
+        # Set position value equals to 1000/position
         position_value = 1000 / self.position
+
+        # Construct matrix for cumulative returns and daily returns.
         cumu_ret = np.zeros(self.num_trials)
         daily_ret = np.zeros(self.num_trials)
+
+        # For each trials calculate cumulative returns and investment gain.
         for i in range(self.num_trials):
-            investment_gain = np.random.uniform(size=self.position)
-            cumu_ret[i] = sum(investment_gain <= 0.51) * 2 * position_value
+            cumu_ret[i] = sum(np.random.uniform(size=self.position) <= 0.51) * 2 * position_value
             daily_ret[i] = (cumu_ret[i]/1000 - 1)
 
         return daily_ret

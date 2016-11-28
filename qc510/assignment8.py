@@ -15,7 +15,7 @@ We have $1000 to invest on the first day.
  will run a simulation to determine how to make that investment on the first day. 
  i.e. Should we make a single $1000 investment, or 1000 $1 investments. 
  (or something in between)
-
+@author: Qianyu Cheng
 """
 import numpy as np
 from investment import *

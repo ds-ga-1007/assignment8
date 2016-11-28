@@ -4,7 +4,10 @@ from UserDefinedError import *
 import re
 import sys
 import matplotlib.pyplot as plt
-
+"""
+Functions for input and out put
+@author: Qianyu Cheng
+"""
 
 def investment_input_pos(positions):
 

@@ -5,6 +5,7 @@ from investment import *
 from functions import *
 """
 Unittest for investment_input_pos and investment_input_trials
+@author: Qianyu Cheng
 """
 
 
