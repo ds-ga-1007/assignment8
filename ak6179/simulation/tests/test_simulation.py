@@ -15,6 +15,7 @@ from ..simulation import *
 
 class SimulationTest(unittest.TestCase):
     def test_constructor(self):
+        # Test valid Simulation objects.
         sim = Simulation([1, 10, 100, 1000], 1000)
         self.assertEqual(str(sim), "positions: [1, 10, 100, 1000], num_trials: 1000")
         sim = Simulation([1], 10)
@@ -23,6 +24,7 @@ class SimulationTest(unittest.TestCase):
         self.assertEqual(str(sim), "positions: [100, 1000], num_trials: 100")
         sim = Simulation([1000, 100, 10, 1, 10, 100, 1000], 10)
         self.assertEqual(str(sim), "positions: [1000, 100, 10, 1, 10, 100, 1000], num_trials: 10")
+        # Test invalid Simulation objects.
         with self.assertRaises(ValueError):
             _ = Simulation(100, 1000)
         with self.assertRaises(ValueError):

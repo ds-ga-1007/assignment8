@@ -22,10 +22,10 @@ import logging
 def main():
     try:
         parser = argparse.ArgumentParser()
-        # Adding option to allow user to enter positions, num_trials at command line.
+        # Add option to allow user to enter positions, num_trials at command line.
         parser.add_argument("-enter_positions", default=0, type=int)
         args = parser.parse_args()
-        # Setting up logging to give info about different states of the program.
+        # Set up logging to give info about different states of the program.
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
         if args.enter_positions == 1:
             try:
@@ -43,15 +43,17 @@ def main():
         else:
             positions = [1, 10, 100, 1000]
             num_trials = 10000
-        # Creating paths for histogram files according to names specified in the assignment.
+        # Create paths for histogram files according to names specified in the assignment.
         output_files = ["histogram_" + '{:04d}'.format(p) + "_pos.pdf" for p in positions]
         sim = simulation.Simulation(positions, num_trials)
         logging.info("Running simulation.")
         sim.simulate()
         logging.info("Simulation over.")
+        # Write summary-results to file.
         results_path = "results.txt"
         sim.write_summary(results_path)
         logging.info("Results summary written to: " + results_path)
+        # Plot histograms.
         sim.plot_trials_histogram(output_files)
         logging.info("Histograms written to files: " + str(output_files))
     except KeyboardInterrupt:
