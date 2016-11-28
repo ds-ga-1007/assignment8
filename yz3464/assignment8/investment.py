@@ -34,6 +34,34 @@ class investment:
             daily_ret[trial] = (cumu_ret[trial]/1000) - 1
         return daily_ret
     
+    
+    @staticmethod
+    def plotFigures(position, num_trials,filename):
+        '''
+        plot the histgram of daily outcome of each trial and save it to the filename inputed
+        '''
+        daily_ret = investment.simulateInvestment(investment(position,num_trials))
+        fig, ax = plt.subplots(nrows=1, ncols=1)
+        fig.set_size_inches(12, 12)
+        ax.hist(daily_ret, 100, range=[-1, 1])
+        plt.title('histogram ' + str(position))
+        fig.savefig(filename)
+        plt.close(fig)
+        
+    @staticmethod    
+    def showResult(positions, num_trials):
+        '''
+        return result.txt, which includes the numerical results.
+        '''
+        f = open('result.txt', 'w')
+        for p in positions:
+            daily_ret = investment.simulateInvestment(investment(p,num_trials))
+            mean = str(np.mean(daily_ret))
+            std = str(np.std(daily_ret))
+            file.write("position " + str(p) + ", mean: " + mean + ", std:  " + str + "\r\n")
+            f.flush()
+        f.close()
+    
             
             
             
