@@ -61,7 +61,7 @@ class investment:
             file.write("position " + str(p) + ", mean: " + mean + ", std:  " + str + "\r\n")
             f.flush()
         f.close()
-    
+        
             
             
             
