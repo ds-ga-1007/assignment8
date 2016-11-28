@@ -1,7 +1,7 @@
 '''
 Created on Nov 27, 2016
 
-@author: kevinyan
+@author: Shucheng Yan
 
 
 this module creates the class for simulation. Each object of simulation will have the following method.
