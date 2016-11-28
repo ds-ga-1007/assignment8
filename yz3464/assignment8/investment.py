@@ -37,7 +37,7 @@ class investment:
     @staticmethod
     def plotFigures(position, num_trials,filename):
         '''
-        plot the histgram of daily outcome of each trial and save it to the filename inputed
+        plot the histogram of daily outcome of each trial and save it to the filename inputed
         '''
         daily_ret = investment.simulateInvestment(investment(num_trials, position))
         fig, ax = plt.subplots(nrows=1, ncols=1)
