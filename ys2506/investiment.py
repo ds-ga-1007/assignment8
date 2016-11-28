@@ -1,3 +1,9 @@
+"""
+Created on Mon Nov 28 2016
+@author: Yanan Shi/ys2506
+@desc: define the class and related methods
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 
