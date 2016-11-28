@@ -1,3 +1,6 @@
+# Author: Leslie Huang (lh1036)
+# Description: InvestmentPositions class and methods.
+
 import numpy as np
 import re
 from .exceptions import *
@@ -7,15 +10,17 @@ class InvestmentPositions(object):
     def __init__(self, count, value):
         '''
         Initializes an InvestmentPosition object with 
-        count (number of shares) and 
-        value (denomination of investment instrument)
+        count (number of shares) and value (denomination of investment position)
         '''
+        
         self.count = count
         self.value = value
         
     def simulate_one_share(self):
         '''
-        Returns 2 * starting value with Probability = 0.51 and 0 with Pr = 0.49.
+        Simulates 1-day return for 1 investment position
+        Per the instructions, returns 2 * starting value with Probability = 0.51 (if randnum > 0.49) 
+        and 0 with Pr = 0.49 (if randnum <= 0.49)
         '''
         
         success = np.random.random() > 0.49
@@ -24,7 +29,7 @@ class InvestmentPositions(object):
     def one_day_return(self):
         '''
         Runs independent simulation of 1-day return for each share in count (num shares purchased). 
-        Returns the cumulative 1-day return of all the shares.
+        Returns the cumulative return (sum of 1-day return of each share)
         '''
         
         return sum(self.simulate_one_share() for i in range(self.count))
@@ -33,7 +38,8 @@ class InvestmentPositions(object):
         '''
         Runs num_trials simulations of the 1-day return for user's number of shares. 
         Returns a list with num_trials elements. 
-        Each list element is a separate simulation that calculates a cumulative 1-day return.
+        Each list element is a separate simulation that calculates the 1-day cumulative 
+        return for the number of shares and denomination
         '''
         
         return [self.one_day_return() for i in range(num_trials)]
@@ -50,8 +56,8 @@ class InvestmentPositions(object):
         ''' 
         Parse a list of positions (in String format).
         Returns list of InvestmentPositions objects.
-        Raises InvalidListError if argument is not correctly formatted as a "list" string.
-        Raises InvalidPositionError if an invalid position value is entered.
+        Raises InvalidListError if string is not correctly formatted as a "list"
+        Raises InvalidPositionError if an invalid position value is entered
         '''
         
         if re.match(r"\[(\d+, )+\d+\]", list_as_string) is None:
