@@ -1,7 +1,7 @@
 '''
 Created on Nov 27, 2016
 
-@author: kevinyan
+@author: Shucheng Yan
 
 
 credit the author of lj1035
