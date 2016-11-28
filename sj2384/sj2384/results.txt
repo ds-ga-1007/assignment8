@@ -1,0 +1,4 @@
+For position :  1   with position Value:  1000.0   The mean is:  0.0226  The standard deviation:  0.9997445873821974 
+For position :  10   with position Value:  100.0   The mean is:  0.01587999999999999  The standard deviation:  0.3166888466618299 
+For position :  100   with position Value:  10.0   The mean is:  0.01934600000000001  The standard deviation:  0.10120717506185024 
+For position :  1000   with position Value:  1.0   The mean is:  0.020034200000000023  The standard deviation:  0.03152044464089936 
