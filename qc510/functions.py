@@ -5,15 +5,14 @@ import re
 import sys
 import matplotlib.pyplot as plt
 """
-Functions for input and out put
+Functions for positions and trial input and out put
 @author: Qianyu Cheng
 """
 
+
 def investment_input_pos(positions):
 
-    # Remove useless blank space
-
-    positions = positions.replace(' ', '')
+    # This function takes in user input: positions as string
 
     # Meet certain format: in 1, 10, 100, 1000 and contain values in '[]'.
 
@@ -29,12 +28,14 @@ def investment_input_pos(positions):
         if positions_set[i] not in ['1', '10', '100', '1000']:
             raise InputErrorPositions
 
-    # Return the cleansed positions sets.
+    # Return the cleansed positions sets as list.
 
     return positions_set
 
 
 def investment_input_trials(num_trials):
+
+    # This function takes in user input: num_trials as string
 
     # Test to see if the input is integer.
 
@@ -52,9 +53,14 @@ def investment_input_trials(num_trials):
 
         raise InputErrorTrials
 
+    # Return the trials as a integer if the input is validated.
+
     return trials
 
+
 def investment_output(positions_set,trials):
+
+    # Take positions_set and trials that got from the functions above as user input.
 
     # Print the txt and pdf that are needed for questions.
 

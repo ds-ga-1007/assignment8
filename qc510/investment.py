@@ -1,4 +1,5 @@
 """
+
 Define a class investment that calculate the result of a one day investment.
 
 @author: Qianyu Cheng
@@ -12,8 +13,11 @@ class investment_daily(object):
 
     This class for investment with one specific position like: 1, 10, 100, 1000
 
+    Take in two parameters that are position and num_trials
+
     Methods:
         one_day: that takes a investment_daily object and calculate the daily return for the position.
+
     """
     def __init__(self, position, num_trials):
 
