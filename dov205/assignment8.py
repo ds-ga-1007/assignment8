@@ -96,7 +96,7 @@ def receive_positions_input() -> List[int]:
             return positions
 
         # Catch exception thrown in parse_positions().
-        # Inform user of their invalid entry and repeat.
+        # Inform user of their invalid entry and retry prompt.
         except InvalidPositionException as ipe:
             print(ipe, file=sys.stderr)
 
@@ -218,7 +218,7 @@ def receive_num_trials_input() -> int:
             return num_trials
 
         # Catch exception thrown in parse_trial().
-        # Inform user of their invalid entry and repeat.
+        # Inform user of their invalid entry and retry.
         except InvalidTrialException as ite:
             print(ite, file=sys.stderr)
 
@@ -251,7 +251,7 @@ def simulate(positions: List[int], num_trials: int):
     # Open stream to output file that'll close itself.
     with open('results.txt', 'w') as file:
 
-        # Perform :num_trials simulations for each position in positions
+        # Perform :num_trials simulations for each position in positions.
         for position in positions:
 
             # Simulate position :position a :num_trials number of times.
@@ -294,10 +294,10 @@ def simulate_position(position: int, num_trials: int) -> (np.ndarray, np.ndarray
     # For each day of maturing investments, simulate results.
     for day in range(num_trials):
 
-        # Obtain cumulative and daily return values.
+        # Obtain current day's cumulative return value.
         cumulative_results = accumulate_returns(investment_returns, position)
 
-        # Save our results in their respective containers
+        # Save our results in the cumulative return container
         cumu_ret[day] = cumulative_results
 
     # Define :daily_ret to be each element of :cumu_ret divided by our
@@ -308,7 +308,7 @@ def simulate_position(position: int, num_trials: int) -> (np.ndarray, np.ndarray
     return cumu_ret, daily_ret
 
 
-def build_investment_array(position_value: [int, float], position: int):
+def build_investment_array(position_value: [int, float], position: int) -> np.ndarray:
     """Build numpy array of Investment positions.
 
     :param position_value: ratio of initial holdings over number of investments.
@@ -354,14 +354,14 @@ def output_plot(daily_ret: np.ndarray, position: int):
 
     :param position: amount of money invested into each investment.
     :param daily_ret: numpy array of normalized returns across all simulated days.
-    :return: PDF containing detailed plot of returns on investment over all simulations.
+    :return: outputs PDF containing detailed plot of returns on investment over all simulations.
     """
 
     # Establish base histogram plot of daily returns, split across 100 buckets.
     plt.hist(daily_ret, 100, range=[-1, 1])
 
     # Set plot title, x and y labels, etc. Nice-to-haves for looking at plots.
-    plt.title("Distribution of returns on investment at position = ${}".format(position))
+    plt.title("Distribution of returns on investment at position = {}".format(position))
     plt.xlabel("Returns relative to position")
     plt.ylabel("Outcome Frequency")
     plt.grid(True)

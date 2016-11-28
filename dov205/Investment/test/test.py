@@ -117,3 +117,19 @@ class InvestmentTest(unittest.TestCase):
 
         # Assert that not a single trial was accepted.
         self.assertEqual(0, len(trials), 'Error: valid position input in :invalid list.')
+
+    def test_investment_creation(self):
+
+        # Define initial parameters.
+        positions, initial_holdings = [1, 10, 20, 50, 100, 250, 1000, 2000], 1000
+
+        # Define investment position values for each of our positions.
+        position_values = [initial_holdings / val for val in positions]
+
+        # Call build_investment_array() for each position value in :position_values.
+        investments = [build_investment_array(INITIAL_HOLDINGS / position, position)
+                       for position in position_values]
+
+        # Assert that we have as many built arrays as positions in our original
+        # position container, :positions.
+        self.assertEqual(len(positions), len(investments), 'Error: expected valid positions not correctly built.')
