@@ -1,0 +1,16 @@
+Numerical results when position = 1
+Mean value: 0.0134
+standard deviation: 0.999910215969
+
+Numerical results when position = 10
+Mean value: 0.02176
+standard deviation: 0.316200098672
+
+Numerical results when position = 100
+Mean value: 0.019408
+standard deviation: 0.0998997974773
+
+Numerical results when position = 1000
+Mean value: 0.0203758
+standard deviation: 0.0315182228934
+
