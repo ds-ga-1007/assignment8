@@ -1,0 +1,8 @@
+for position1:
+mean: 0.0302; standard deviation: 0.999543875975
+for position10:
+mean: 0.02394; standard deviation: 0.310945134067
+for position100:
+mean: 0.021808; standard deviation: 0.100370569073
+for position1000:
+mean: 0.019555; standard deviation: 0.0314010441705
