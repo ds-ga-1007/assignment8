@@ -1,3 +1,12 @@
+"""
+Created on Mon Nov 28 2016
+@author: Yanan Shi/ys2506
+@desc: Program takes positions list and number of simulations from the
+	   user and simulates one day investment with 51% chance of winning.
+	   It computes average daily return and cumulative return from the
+	   simulation and plots histograms for each position in the position
+	   list. It saves the result in a text file and plots in pdf files.
+"""
 from investiment import InvestmentInstrument
 from exceptions import InvalidInputException
 import matplotlib.pyplot as plt
