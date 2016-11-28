@@ -64,3 +64,4 @@ class investment:
             f.write('Position: {0}\n'.format(position))
             f.write('mean: {0}'.format(ret_mean))
             f.write('   Std {0}\n\n'.format(ret_std))
+        f.close()
