@@ -1,0 +1,12 @@
+For position 1, the mean is 0.0206.
+The standard deviation is 0.999787797485.
+
+For position 10, the mean is 0.02042.
+The standard deviation is 0.31577685729.
+
+For position 100, the mean is 0.020848.
+The standard deviation is 0.101303508804.
+
+For position 1000, the mean is 0.019.
+The standard deviation is 0.0314261674405.
+
