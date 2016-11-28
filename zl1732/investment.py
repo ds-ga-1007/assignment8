@@ -65,14 +65,3 @@ class investment:
             f.write('mean: {0}'.format(ret_mean))
             f.write('   Std {0}\n\n'.format(ret_std))
         f.close()
-        
-
-
-i = investment("","")
-positions=100
-num_trails=10000
-ans = i.simulation_one(positions, num_trails)    
-plt.hist(ans,99,range=[-1,1])
-plt.ylabel("frequency")
-plt.xlabel('daily_ret')
-plt.savefig("histogram_0100"+"_pos.pdf")
