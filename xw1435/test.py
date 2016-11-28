@@ -1,5 +1,5 @@
 '''
-Created on 2016Äê11ÔÂ28ÈÕ
+Created on 2016Ã„Ãª11Ã”Ã‚28ÃˆÃ•
 
 @author: wxy
 '''
@@ -9,7 +9,7 @@ from investment import investment
 
 class Test(unittest.TestCase):
 
-    def investment_test5(self) :
+    def test0(self) :
         with self.assertRaise(ValueError) as error:
             investment("a")
         self.assertTrue("Please select from one of the four options: 1, 10, 100, 1000!" in str(error.exception))
