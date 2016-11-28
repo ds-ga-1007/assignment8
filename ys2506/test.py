@@ -1,3 +1,9 @@
+"""
+Created on Mon Nov 28 2016
+@author: Yanan Shi/ys2506
+@desc: unittest
+"""
+
 import unittest
 from exceptions import InvalidInputException
 from investiment import InvestmentInstrument
