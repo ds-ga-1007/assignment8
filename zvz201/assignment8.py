@@ -1,12 +1,11 @@
 """ This module processes inputs, handles errors, and calls the investment_instrument class to produce daily returns, histograms, and statistics"""
 
 # Author: Zhanna Zhanabekova (Net ID: zvz201)
-# Date:  November 26, 2016
+# Date:  November 27, 2016
 
-# See brief program description in readme.txt file
+# See readme.txt for a brief program description:
 
-
- # import useful packages
+# import useful packages
 import sys
 import os
 import numpy as np
