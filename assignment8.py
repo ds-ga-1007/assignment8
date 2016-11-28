@@ -1,4 +1,4 @@
-'''
+"""
 Author: Weiwei Xu
 Net ID: wx433
 
@@ -7,7 +7,7 @@ The total investment stays unchanged.
 But an investor can dicide if he or she want to all in or break the risk down.
 The program also engages test repitition to reduce the error.
 
-'''
+"""
 
 
 
@@ -17,12 +17,14 @@ import sys
 while True:
 
 	
-'''
-Investors want to test on different investment plans, e.g. 1 share of $1000, or 10 shares of $100,
-or 100 shares of $10, etc.
-So the input here is a list of positions that investors want to test out.
-The out put will be statistical summary and charts to see the distribution.
-'''
+	"""
+	Investors want to test on different investment plans, e.g. 1 share of $1000, or 10 shares of $100,
+	or 100 shares of $10, etc.
+	So the input here is a list of positions that investors want to test out.
+	The out put will be statistical summary and charts to see the distribution.
+	"""
+
+
 	try:
 		posIn = input("Please give a list of positions.\n")
 		if posIn[0] == "[" and posIn[-1] == "]":
