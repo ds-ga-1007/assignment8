@@ -1,0 +1,8 @@
+1 shares: mean = 0.042, standard deviation = 0.9991176106945568 
+ 
+10 shares: mean = 0.023199999999999985, standard deviation = 0.3224 
+ 
+100 shares: mean = 0.021700000000000007, standard deviation = 0.0985652575708094 
+ 
+1000 shares: mean = 0.021030000000000014, standard deviation = 0.03087353397329178 
+ 
