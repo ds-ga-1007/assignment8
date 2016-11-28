@@ -1,0 +1,12 @@
+When position is 1:
+	    	The mean of daily return: 0.027200,
+	    	The standard deviation of daily return: 0.999544;
+When position is 10:
+	    	The mean of daily return: 0.021060,
+	    	The standard deviation of daily return: 0.316690;
+When position is 100:
+	    	The mean of daily return: 0.019620,
+	    	The standard deviation of daily return: 0.099760;
+When position is 1000:
+	    	The mean of daily return: 0.019317,
+	    	The standard deviation of daily return: 0.031516;
