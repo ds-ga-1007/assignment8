@@ -26,10 +26,12 @@ class Test(unittest.TestCase):
         Test the reading_in function
         '''
         with self.assertRaises(InputError):
-            reading_in('1','a')
+            reading_in('[1]','a')
         with self.assertRaises(InputError):
-            reading_in('[]','1')      
-        self.assertSequenceEqual(reading_in('1,10,100','100'),[[1,10,100],100])
+            reading_in('[]','1')  
+        with self.assertRaises(InputError):
+            reading_in('[]','-1')        
+        self.assertSequenceEqual(reading_in('[1,10,100]','100'),[[1,10,100],100])
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

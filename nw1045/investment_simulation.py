@@ -44,15 +44,15 @@ def reading_in(positions,num_trials):
     Raises:
         InputError
     '''  
-    positions = positions.split(',')
+    positions = positions[1:-1].split(',')
     num_shares=[]
     for num in positions:
-        if is_int(num) and (num in ['1','10','100','1000']):
+        if is_int(num) and (int(num) in [1,10,100,1000]):
             num_shares.append(int(num))
         else:
             raise InputError
    
-    if is_int(num_trials):
+    if is_int(num_trials) and (int(num_trials)>0):
             num_trials=int(num_trials)
     else:
         raise InputError
@@ -91,7 +91,7 @@ def investment_simulation():
     print('You can purchase it in $1, $10, $100, and $1000 denominations.')
     while True:
         try:
-            positions = input("List of Numbers: ")
+            positions = input("List of Numbers (Format as [1,10,100,1000]): ")
             if positions.upper() == 'QUIT':
                 raise QuitSimulation
             num_trials = input('How many times to randomly repeat the test? ')
