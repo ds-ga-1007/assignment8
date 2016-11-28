@@ -1,6 +1,8 @@
 import numpy as np
 
+
 class investment:
+    """This class will take a single value to build a model of an investment that will add up to $1000"""
     def __init__(self, position):
         if type(position) == int :
             pass
@@ -19,7 +21,8 @@ class investment:
     
     
     def day_instance(self) :
-        cumu_return = self.position_value
+        """This function simulates a single day of this type of investment"""
+        cumu_return = 1000
         number = 0
         flip_of_the_coin = (np.random.rand(self.position) > 0.49).astype(int)
         while number < self.position :
@@ -28,7 +31,6 @@ class investment:
             else :
                 cumu_return = cumu_return - self.position_value
                 
-            
             number = number + 1
-            
+        else :
             return cumu_return
