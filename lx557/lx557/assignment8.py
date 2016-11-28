@@ -4,6 +4,13 @@ Created on 2016.11.23
 @author: xulei
 '''
 
+'''
+This file is the main class which will be excuted when called in python. It would ask the user for a number as the number
+of trails, then proceed to ask for a list of share numbers once the trail number is in the right format. The procedure 
+will go on, which means it will keep asking number of trails and position list in turn. It will only stop when user calls
+'quit' , through keyboard interuption, or press stop buttion if using Eclipse.
+'''
+
 from Exception_class import *
 from input_object import *
 from methods import *
