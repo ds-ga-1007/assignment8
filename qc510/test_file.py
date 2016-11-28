@@ -24,8 +24,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1000, investment_input_trials('1000'))
         self.assertEqual(10000, investment_input_trials('10000'))
 
-        with self.assertRaises(ValueError):
-            investment_input_trials('foo')
         with self.assertRaises(InputErrorTrials):
             investment_input_trials('-1000')
 

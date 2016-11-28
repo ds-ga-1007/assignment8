@@ -80,11 +80,12 @@ def investment_output(positions_set,trials):
         # Calculate mean and standard deviation
 
         mean = np.average(daily_ret)
+
         std = np.std(daily_ret)
 
         # Output the mean and standard deviation to a text file.
 
-        output_text.write('For position = {}, the mean = {:f}, '
+        output_text.write('When position = {}, mean = {:f}, '
                           'standard deviation = {:f}.\n'.format(val, mean, std))
 
     # Close the text output.
