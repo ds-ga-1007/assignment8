@@ -13,14 +13,19 @@ if __name__ == "__main__":
             break
         except ValueError as e:
             print(str(e))
-        except (EOFError, KeyboardInterrupt):
+        except EOFError:
+            print()
+        except KeyboardInterrupt:
             print()
             sys.exit(1)
             
     positions = []
     try:
         while True:
-            p = input('Please enter the number of shares ')
+            p = input('Please enter the number of shares(enter -1 to go to the next step) ')
+            if p == -1:
+                print('enter the next step')
+                break
             p = int(p)
             print(p)
             try:
@@ -29,7 +34,7 @@ if __name__ == "__main__":
             except ValueError as e:
                 print(str(e))
     except KeyboardInterrupt:
-        print()
+        print('finish input, then return the result and figures')
         sys.exit(1)
     except EOFError:
         print()

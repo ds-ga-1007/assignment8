@@ -9,6 +9,13 @@ from assignment8.investment import *
 class Test(unittest.TestCase):
     def setUp(self):
         pass
+    def test_class(self):
+        i = investment(1,1)
+        j = investment(100,1000)
+    
+    def test_eq(self):
+        self.assertEqual(investment(1,1).num_trials, investment(1,1).num_trials)
+        self.assertEqual(len(investment.simulateInvestment((investment(10,100)))),10)
     
     def test_constructor(self):
         invest = investment(10000,10)
@@ -24,7 +31,6 @@ class Test(unittest.TestCase):
         self.assertTrue(all(investment.simulateInvestment(invest2))>=-1)
         self.assertTrue(all(investment.simulateInvestment(invest1))<=1)
         self.assertTrue(all(investment.simulateInvestment(invest2))<=1)
-        
-        
+               
 if __name__ == "__main__":
     unittest.main()
