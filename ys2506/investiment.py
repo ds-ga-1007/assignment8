@@ -1,51 +1,24 @@
 import matplotlib.pyplot as plt
-from statistics import mean, stdev
 import numpy as np
 
-
-class Investiment:
-    
-    def __init__(self, positions, num_trials):
+class InvestmentInstrument(object):
+    def __init__(self, positions, win_rate = 0.51, win_ravenue = 1., lose_ravenue = -1.):
+        self.daily_ret = None
         self.positions = positions
-        #For each position, set a value to represents the size of each investment
-        self.position_value = 1000 / positions
-        self.num_trials = num_trials
-    
-    
-    def outcome(investment):
-        #Use NumPy's random number generating capability to simulate the outcome of one day of investment:
-        cumu_ret = np.zeros(investment.num_trials)
-        #Repeat num_trials times
-        for trial in range(investment.num_trials):
-            ret = 0
-            for j in range(investment.positions):
-                if np.random.uniform(0,1) <= 0.51:
-                    ret += investment.position_value*2
-                cumu_ret[trial] = ret
-        return (cumu_ret/ 1000.0) - 1.0
-    
-    def invest(positions, num_trials):
-        file = open('results.txt', 'w')
-        for position in positions:
-            #For each position, plot of the result of the trials in a histogram with X axis from -1.0 to +1.0, and Y axis as the number of trials with that result.
-            investiment = Investiment(position, num_trials)
-            daily_ret = investiment.outcome()
+        self.win_rate = win_rate
+        self.win_ravenue = win_ravenue
+        self.lose_ravenue = lose_ravenue
+
+
+    def investment_simulate(self, principal, num_trials):
+        def revenue(position):
+            def outcome(value):
+                ravenue = self.win_ravenue if np.random.uniform() <= self.win_rate else self.lose_ravenue
+                return value * (1 + ravenue)
             
-            fig = plt.figure()
-            plt.hist(daily_ret, 100, range=[-1, 1])
-            plt.title("histogram_" + str(position).rjust(4,'0') + "_pos")
-            fig.savefig("histogram_" + str(position).rjust(4,'0') + '_pos.pdf')
-            file.write("for position " + str(position) + " :" + "\r\n")
-            file.write(" the mean or expected value of the daily return is: " + str(mean(daily_ret)) + "\r\n")
-            file.write(" the standard deviation of the daily return is: " + str(stdev(daily_ret)) + "\r\n")
-            file.flush()
-        plt.show()
-        plt.close('all')
-        file.close()
+            value = principal / position
+            return sum(np.vectorize(outcome)(np.repeat(value, position))) / principal - 1
+        
+        return np.array([np.vectorize(revenue)(self.positions) for _ in range(num_trials)])
 
 
-if __name__ == "__main__":
-    
-    positions = [1, 10, 100, 1000]
-    num_trials = 10000
-    Investiment.invest(positions, num_trials)

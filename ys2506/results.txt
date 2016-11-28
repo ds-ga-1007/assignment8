@@ -1,6 +1,5 @@
-for position 1 :
- the mean or expected value of the daily return is: 0.0
- the standard deviation of the daily return is: 1.4142135623730951
-for position 10 :
- the mean or expected value of the daily return is: 0.1
- the standard deviation of the daily return is: 0.14142135623730948
+position   mean    stddev 
+       1   0.02060 0.99979
+      10   0.02404 0.31827
+     100   0.02175 0.10066
+    1000   0.01991 0.03141
