@@ -5,8 +5,11 @@ import re
 import sys
 import matplotlib.pyplot as plt
 """
-Functions for positions and trial input and out put
+
+Functions for positions input and trial input and output of pdf and text files.
+
 @author: Qianyu Cheng
+
 """
 
 
@@ -78,7 +81,7 @@ def investment_output(positions_set,trials):
 
         # Define the size of the figure
 
-        fig = plt.figure(figsize=(6, 6))
+        figure = plt.figure(figsize=(6, 6))
 
         # Print out the histogram.
 
@@ -90,18 +93,18 @@ def investment_output(positions_set,trials):
 
         # Save the pdf to different file
 
-        fig.savefig(pdf_name)
+        figure.savefig(pdf_name)
 
         # Calculate mean and standard deviation
 
-        mean = np.average(daily_ret)
+        expected_value = np.average(daily_ret)
 
-        std = np.std(daily_ret)
+        sd = np.std(daily_ret)
 
         # Output the mean and standard deviation to a text file.
 
-        output_text.write('When position = {}, mean = {:f}, '
-                          'standard deviation = {:f}.\n'.format(val, mean, std))
+        output_text.write('When position = {}, mean = {}, '
+                          'standard deviation = {}.\n'.format(val, expected_value, sd))
 
     # Close the text output.
 

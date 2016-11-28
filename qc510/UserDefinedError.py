@@ -2,9 +2,9 @@
 """
 This file includes user defined exceptions:
 
-InputErrorPositions
+InputErrorPositions: when positions are in wrong format.
 
-InputErrorTrials
+InputErrorTrials: when trials are negative number.
 
 @author: Qianyu Cheng
 """
