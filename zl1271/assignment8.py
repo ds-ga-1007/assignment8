@@ -5,6 +5,7 @@ Created on Nov 23, 2016
 '''
 from simu_funcs import *
 from simulation import *
+import matplotlib.pyplot as plt
     
 def main():
     while True:
@@ -24,7 +25,23 @@ def main():
             num_trials = int(trials_input_str)
             this_simu = simulation(positions,num_trials)
             
-            this_simu.simulate()
+            this_simu.simulate() # Run the simulation
+            
+            cumu_ret = this_simu.simulate_results # Collect the simulated results
+            #print(cumu_ret)#######################################
+            
+            daily_ret = (cumu_ret/1000) - 1
+            #print(daily_ret)#################################
+            
+            for ii in np.arange(4):
+                this_plot_data = daily_ret[:,ii]
+                plt.hist(this_plot_data,100,range=[-1,1])
+                plt.show()
+            
+            
+
+            
+            
             break
         except:
             pass

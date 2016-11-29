@@ -42,7 +42,7 @@ class simulation(object):
                 ii = ii + 1
         
 
-        print(self.simulate_results)
+        #print(self.simulate_results)###########################
         
 
     

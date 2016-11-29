@@ -40,7 +40,14 @@ class Test(unittest.TestCase):
         np.random.seed(seed) # After test, the random generator should be random again, this idea is adapted from http://nullege.com/codes/show/src@s@t@statsmodels-0.5.0@statsmodels@sandbox@tsa@examples@ex_mle_garch.py/88/numpy.random.seed
         self.assertEqual(np.mean(return_collector), 0.0332) # 0.0332 is calculated for the seed 0
         
-
+    def test_get_invest_return_vec(self):
+        seed = np.random.randint(9999999)
+        np.random.seed(0) 
+        
+        np.random.seed(seed)
+        #self.assertEqual(first, second, msg)
+    
+    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
