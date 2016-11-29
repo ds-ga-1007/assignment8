@@ -5,18 +5,13 @@ Created on Nov 27, 2016
 '''
 import numpy as np
 import exceptions
-from exceptions import input_bound_exception,input_value_exception,input_trial_number_exception
+from ym1495_assignment8.exceptions import input_bound_exception,input_value_exception,input_trial_number_exception
 
-class investments(object):
-    '''
-    convert input strings into a list and an integer
-    '''
-
-
-    def __init__(self, positions_input, num_trials_input):
+def investments(positions_input):
         '''
         Constructor
         '''
+        positions = []
         if positions_input[0]!='[' or positions_input[-1]!=']':
             raise input_bound_exception()
         else:
@@ -26,10 +21,17 @@ class investments(object):
                     positions[i] = int(positions[i])
                 except:
                     raise input_value_exception()
-        self.positions = np.array(positions)
-        self.position_values = np.floor(1000/self.positions)
-        try:
-            self.num_trials = int(num_trials_input)
-        except:
-            raise input_trial_number_exception()
+        return positions
+
+def position_values(positions):
+    array = np.array(positions)
+    value_array = np.around(1000/array, decimals=2)
+    return value_array
+
         
+def trials(num_trials_input):          
+    try:
+        num_trials = int(num_trials_input)
+    except:
+        raise input_trial_number_exception()
+    return num_trials

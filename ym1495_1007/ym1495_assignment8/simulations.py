@@ -5,8 +5,8 @@ Created on Nov 28, 2016
 '''
 
 import numpy as np
-import matplotlib as plt
-from investments import investments
+import matplotlib.pyplot as plt
+from ym1495_assignments.investments import *
 
 def cumu_ret(position_value):
     '''a single time operation'''
@@ -40,7 +40,7 @@ def plot_investment(position_value, position, num_trials):
     plt.figure()
     plt.hist(daily_ret_list, 100, range = [-1,1])
     plt.xlabel('Return Rate')
-    plt.ylable('Number of Trials')
+    plt.ylabel('Number of Trials')
     plt.title('Return Rate Histogram with Positions: {}'.format(str(position)))
     plt.savefig('histogram_{}_pos.pdf'.format(str(position).zfill(4)))   #name the new file as required
 
