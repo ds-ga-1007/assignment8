@@ -6,8 +6,6 @@ Created on Nov 23, 2016
 from simu_funcs import *
 from simulation import *
 from plot_funcs import *
-from _io import open
-
     
 def main():
     while True:
@@ -48,7 +46,6 @@ def main():
 
             result_file.close()
             print('results.txt saved.')
-
 
             break
             

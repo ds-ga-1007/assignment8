@@ -27,6 +27,7 @@ def valid_trial_str(string):
         return True
     
 def invest_return(bias_level = 0.51):
+    # For 49% of time returns -1, 51% of time returns 1
     return_rate = 0.0
     if np.random.rand(1)[0] >= bias_level:
         return_rate = -1.0
@@ -42,10 +43,3 @@ def get_invest_return_vec(position_value,position):
         all_returns[ii] = this_return
     return all_returns
         
-    
-    
-    
-    
-    
-    
-    
