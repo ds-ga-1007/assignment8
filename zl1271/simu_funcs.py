@@ -37,11 +37,9 @@ def invest_return(bias_level = 0.51):
 def get_invest_return_vec(position_value,position):
     # need both position_value and position so that if total money for investment changes this still work
     all_returns = np.zeros([position])
-    
     for ii in np.arange(position):
         this_return = invest_return() * position_value
         all_returns[ii] = this_return
-        
     return all_returns
         
     

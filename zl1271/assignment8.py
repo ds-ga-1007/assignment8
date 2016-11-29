@@ -5,7 +5,9 @@ Created on Nov 23, 2016
 '''
 from simu_funcs import *
 from simulation import *
-import matplotlib.pyplot as plt
+from plot_funcs import *
+from _io import open
+
     
 def main():
     while True:
@@ -14,7 +16,7 @@ def main():
             trials_input_str = ''
             
             while not valid_share_str(shares_input_str):
-                shares_input_str = input("Please enter a list of 4 integers separated by commas, as number of shares to buy in parallel\n")
+                shares_input_str = input("Please enter a list of 4 integers separated by commas as number of shares to buy in parallel\n")
                 shares_input_str = rm_ws(shares_input_str)
 
             while not valid_trial_str(trials_input_str):
@@ -28,24 +30,31 @@ def main():
             this_simu.simulate() # Run the simulation
             
             cumu_ret = this_simu.simulate_results # Collect the simulated results
-            #print(cumu_ret)#######################################
+
             
             daily_ret = (cumu_ret/1000) - 1
-            #print(daily_ret)#################################
-            
-            for ii in np.arange(4):
-                this_plot_data = daily_ret[:,ii]
-                plt.hist(this_plot_data,100,range=[-1,1])
-                plt.show()
-            
-            
 
-            
-            
+            result_file = open('results.txt', 'w')
+            for ii in np.arange(len(positions)):
+                this_plot_data = daily_ret[:,ii]
+                this_position_int = positions[ii]
+        
+                plot_simulation(this_plot_data, this_position_int) 
+                
+                this_mean = np.mean(this_plot_data)
+                this_std = np.std(this_plot_data)
+                
+                write_simulation(result_file, this_position_int, this_mean, this_std)
+
+            result_file.close()
+            print('results.txt saved.')
+
+
             break
+            
         except:
             pass
-
+    exit('Program finished.')
 if __name__ == '__main__':
     try:
         main()

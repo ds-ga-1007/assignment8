@@ -43,10 +43,14 @@ class Test(unittest.TestCase):
     def test_get_invest_return_vec(self):
         seed = np.random.randint(9999999)
         np.random.seed(0) 
-        
+        ans_list = [52.0, 20.0, 0.0, 1000.0]
+        test_list = [1,10,100,1000]
+        result_list = [];
+        for value in test_list:
+            result_list.append(sum(get_invest_return_vec(value,1000/value)))
         np.random.seed(seed)
-        #self.assertEqual(first, second, msg)
-    
+        self.assertEqual(result_list, ans_list)
+        
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
