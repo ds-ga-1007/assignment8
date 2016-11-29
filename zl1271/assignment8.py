@@ -49,8 +49,11 @@ def main():
 
             break
             
+        except KeyboardInterrupt:
+            exit('Program terminated')
         except:
             pass
+        
     exit('Program finished.')
 if __name__ == '__main__':
     try:
