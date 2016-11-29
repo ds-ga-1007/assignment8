@@ -30,7 +30,7 @@ class Investment():
             raise InvalidInvestmentValue
 
 class Number_Trials():
-    '''This class represents the number of trials (or trading days) to be run.'''
+    '''This class represents the number of trials (or trading days) to be run by the program.'''
     def __init__(self, number):
         self.number = int(number)
         if int(self.number) < 1:

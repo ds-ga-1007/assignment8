@@ -1,6 +1,6 @@
 
 import unittest
-from Classes_and_Methods import *
+from Classes_and_Functions import *
 
 class Test(unittest.TestCase):
 
@@ -26,32 +26,26 @@ class Test(unittest.TestCase):
         with self.assertRaises(NonPositiveInteger) as cm:
             Number_Trials(0)
         self.assertTrue('The "number of trials" must be a positive integer' in str(cm.exception))
-   
-    def convert_input_to_integerlist_test1(self):
-        string = '[3,4,5]'
-        self.assertEqual(convert_input_to_integer_list(string), [3,4,5])
-
     
-    
-    def convert_input_to_integerlist_test1(self): #NOT COUNTED
+    def test_convert_input_to_integerlist_1(self): 
         string = '[3, 4, 5]'
         self.assertEqual(convert_input_to_integer_list(string), [3, 4, 5])
 
-    def convert_input_to_integerlist_test2(self): #NOT COUNTED
+    def test_convert_input_to_integerlist_2(self): 
         string2 = '3, 4, 5]'
         self.assertRaises(NoSquareBrackets, convert_input_to_integer_list, string2)
 
-    def remove_duplicates_test(self): #NOT COUNTED
+    def test_remove_duplicates(self): 
         position_list = [1, 10, 100, 10]
         self.assertEqual(remove_duplicates(position_list), [1, 10, 100])
 
-    def convert_results_to_string_test(self): #Not
+    def test_convert_results_to_string(self):
         position = 10
         position_value = 100
         daily_ret_array = np.array([0, 1])
         self.assertEqual(convert_results_to_string(position, position_value, daily_ret_array), 'Position of 10, each bet is $100\nMean = 0.5\nStandard Deviation = 0.5') 
 
-    def simulate_bet_test(self): #Not
+    def test_simulate_bet(self):
         position_value0 = 1000
         position_value1 = 100
         position_value2 = 10

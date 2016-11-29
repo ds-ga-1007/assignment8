@@ -1,6 +1,6 @@
 from Classes_and_Functions import *
 
-print('\nThis program simulates the one-day performance of an investment, assuming\nthat we invest $1000. Specifically, the program will simulate\ninvestment returns for various position sizes.')
+print('\nThis program simulates the one-day performance of an investment, assuming\nthat we invest $1000. Specifically, the program will simulate\ninvestment returns for a range of position sizes.')
 
 
 '''First step: user must input a list of positions'''
