@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="2" failures="0" finished="true" name="Test Run: 2" tests="2" total_time="Finished in: 0.00 secs."/>
+<test location="/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py" status="error" test="tests.test_constructor" time="">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py", line 21, in test_constructor
+    self.assertEqual(trialInput([1, 10, 100], 1000).positions, [1, 10, 100])
+AttributeError: 'trialInput' object has no attribute 'positions'
+]]></stderr>
+</test>
+<test location="/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py" status="error" test="tests.test_stimulate" time="">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py", line 32, in test_stimulate
+    result = a.stimulate([1000.0, 100.0, 10.0], 1000)
+TypeError: stimulate() takes 1 positional argument but 3 were given
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="bz866_invesment test.py"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

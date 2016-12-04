@@ -1,0 +1,17 @@
+'''
+Created on 2016年12月4日
+
+@author: EricTseng
+'''
+
+class MyClass(object):
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self, params):
+        '''
+        Constructor
+        '''
+        

@@ -1,0 +1,8 @@
+mean of return for position 1 : 0.01812
+std of return for position 1 : 0.0340209582464
+mean of return for position 10 : 0.018
+std of return for position 10 : 0.107833204534
+mean of return for position 100 : 0.036
+std of return for position 100 : 0.303815733628
+mean of return for position 1000 : 0.18
+std of return for position 1000 : 0.983666610189
