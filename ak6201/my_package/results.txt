@@ -1,0 +1,12 @@
+The mean of the daily return of trail 1 with position value 1000.0 is 0.0192
+The standard deviation of the daily return of trail 1 with position value 1000.0 is 0.99981566301
+
+The mean of the daily return of trail 2 with position value 100.0 is 0.0239
+The standard deviation of the daily return of trail 2 with position value 100.0 is 0.316039222249
+
+The mean of the daily return of trail 3 with position value 10.0 is 0.020828
+The standard deviation of the daily return of trail 3 with position value 10.0 is 0.101626150257
+
+The mean of the daily return of trail 4 with position value 1.0 is 0.0202816
+The standard deviation of the daily return of trail 4 with position value 1.0 is 0.0317799543964
+
