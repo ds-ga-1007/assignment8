@@ -1,62 +1,39 @@
+# Author: Yang Sun
 import sys
-from investment import *
-import numpy as np
-import numpy.random as rand
-import matplotlib
-matplotlib.use('TkAgg')
-from matplotlib import pyplot as plt
+from simulation import *
 
-"""
-This main program simulates through investments of $1, $10, $100 and $1000 in order to
-see how this affects returns based on a probability 0.49 of losing the investment vs
-a probability of 0.51 of getting double the investment.
-"""
+'''Users should input a list of numbers of shares to buy, and a number of times to repeat to do the
+simulation of the investment. The program will yield mean and standard deviation of each position,
+and histogram of daily return.'''
 
-positions = []
-def main():
-    while True:
-    """
-    Asks user for position
-    """ 
-        try:
-            position = input("Enter a list of the number of shares to buy in parallel: ")
-            if (position == 'quit'):
-                sys.exit()
-            position = str(position)
-            position = position.strip()
-            separated = position[1:-1].split(",")
-            positions = [int(s) for s in separated]
-            break
-        except ValueError:
-            print ('Error in input: try again')
-        except KeyboardInterrupt:
-            print()
-            sys.exit()
-        except EOFError:
-            print()
-            sys.exit()
-    
-    while True:
-    """
-    Asks user for number of trials
-    """
-        try:
-            num_trials = int(input('Enter the number of times you would like to repeat the test: '))
-            break
-        except ValueError:
-            print ('Error in input: try again')
-        except KeyboardInterrupt:
-            print()
-            sys.exit()
-        except EOFError:
-            print()
-            sys.exit()
+while True:
+    try:
+        pos_num = raw_input('A list of number of shares to buy in parallel? '
+                            'Valid numbers to input are 1,10,100 and 1000\n')
+        positions = pos_num.split()
+        for i, position in enumerate(positions):
+            positions[i] = int(position)
+        break
+    except EOFError:
+        sys.exit(1)
+    except KeyboardInterrupt:
+        sys.exit(2)
 
-	resultInv = investment(positions, num_trials)
+while True:
+    try:
+        num_trials = int(raw_input('How many times to randomly repeat the test?\n'))
+        break
+    except ValueError:
+        print('Invalid number!')
+    except EOFError:
+        sys.exit(3)
+    except KeyboardInterrupt:
+        sys.exit(4)
 
-	resultInv.results(positions, num_trials)
+f = open ('results.txt','w')
+for i in positions:
+    s = simulation(i, num_trials)
+    f.write('Position: ' + str(i) + ', Mean: ' + str(s.mean)+ ', Std:  ' + str(s.std) + "\r\n")
+    s.histogram('Histogram_' + str(i) + '_pos.pdf')
 
-    
-if __name__ == "__main__":
-    main()
-            
+f.close()
