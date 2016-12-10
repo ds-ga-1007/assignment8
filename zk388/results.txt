@@ -1,0 +1,4 @@
+mean and standard deviation for postion 1 are: 0.0218 and 0.999762351762
+mean and standard deviation for postion 10 are: 0.02006 and 0.31614173467
+mean and standard deviation for postion 100 are: 0.019104 and 0.100119514501
+mean and standard deviation for postion 1000 are: 0.0195982 and 0.0313642305303
