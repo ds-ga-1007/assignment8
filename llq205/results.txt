@@ -1,0 +1,8 @@
+The mean of daily return for position 1 is 0.0176
+The standard deviation of daily return for position 1 is 0.999845108004
+The mean of daily return for position 10 is 0.02114
+The standard deviation of daily return for position 10 is 0.315678793079
+The mean of daily return for position 100 is 0.019672
+The standard deviation of daily return for position 100 is 0.0986856241608
+The mean of daily return for position 1000 is 0.0199798
+The standard deviation of daily return for position 1000 is 0.0316624318706
