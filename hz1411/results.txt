@@ -1,0 +1,4 @@
+Position = 1: mean = 0.0198, std = 0.9998 
+Position = 10: mean = 0.0191, std = 0.3165 
+Position = 100: mean = 0.0181, std = 0.0999 
+Position = 1000: mean = 0.0202, std = 0.0318 
