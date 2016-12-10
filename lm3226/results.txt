@@ -1,0 +1,8 @@
+Mean expected return for 1: 0.00958600000000001
+Standard deviation for 1: 0.030593996208406665
+Mean expected return for 10: 0.005380000000000008
+Standard deviation for 10: 0.10053584236480044
+Mean expected return for 100: 0.012999999999999989
+Standard deviation for 100: 0.3036297086913598
+Mean expected return for 1000: -0.032
+Standard deviation for 1000: 0.999487868860848
