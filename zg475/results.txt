@@ -1,0 +1,4 @@
+For position 1 mean is: 0.0116 and std is: 0.999932717737
+For position 100 mean is: 0.019448 and std is: 0.0981587250121
+For position 10 mean is: 0.01642 and std is: 0.312202472123
+For position 1000 mean is: 0.0197376 and std is: 0.0314613405029
