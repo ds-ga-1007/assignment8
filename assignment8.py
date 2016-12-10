@@ -24,7 +24,7 @@ def main():
             investments = [int(i) for i in position_input.split(sep=',')]
             num_trials = int(trials_input)
             files = 1
-            with open('Portfolio Statistics.txt', 'w') as file:    #If user is re-running, this will wipe the 
+            with open('results.txt', 'w') as file:    #If user is re-running, this will wipe the 
                 file.write('')                                     #text file clean
             print('Generating output...')
             for i in investments:

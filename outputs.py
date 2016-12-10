@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 def generate_statistics(investment):
     '''I referred to python documentation to write to the text file.
     https://docs.python.org/3/tutorial/inputoutput.html''' 
-    with open('Portfolio Statistics.txt', 'a') as file:
+    with open('results.txt', 'a') as file:
         data =  'Number of shares: ' + str(investment.position) + \
                 '\nValue of each share: $' + str(investment.position_value) + \
                 '\nMean: ' + str(investment.mean()) + \
