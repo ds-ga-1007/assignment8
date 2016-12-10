@@ -1,0 +1,4 @@
+For  1 positions of $ 1000.000000 the mean is  0.018000 and the standard deviation is  0.999838 at  10000 trials
+For  10 positions of $ 100.000000 the mean is  0.018800 and the standard deviation is  0.314717 at  10000 trials
+For  100 positions of $ 10.000000 the mean is  0.020274 and the standard deviation is  0.100073 at  10000 trials
+For  1000 positions of $ 1.000000 the mean is  0.020077 and the standard deviation is  0.031630 at  10000 trials
