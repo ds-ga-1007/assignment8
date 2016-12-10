@@ -1,0 +1,16 @@
+At the position of: 1000
+The mean of daily return: 0.0204384
+The standard deviation: 0.0313809082953
+
+At the position of: 1
+The mean of daily return: 0.0192
+The standard deviation: 0.99981566301
+
+At the position of: 10
+The mean of daily return: 0.01882
+The standard deviation: 0.313384440584
+
+At the position of: 100
+The mean of daily return: 0.019642
+The standard deviation: 0.0999235299417
+
