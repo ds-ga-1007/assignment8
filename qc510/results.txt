@@ -1,0 +1,4 @@
+When position = 1, mean = 0.0262, standard deviation = 0.9996567210797914.
+When position = 10, mean = 0.015419999999999993, standard deviation = 0.31848111969157605.
+When position = 100, mean = 0.02025600000000001, standard deviation = 0.10000647211055894.
+When position = 1000, mean = 0.019986400000000015, standard deviation = 0.0313121161060699.
