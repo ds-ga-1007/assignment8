@@ -1,0 +1,4 @@
+ The mean of buying 1 shares is 0.0254 with standard deviation as 0.9996773679542816
+ The mean of buying 10 shares is 0.02332000000000002 with standard deviation as 0.3144013002517642
+ The mean of buying 100 shares is 0.018410000000000024 with standard deviation as 0.10069633508723147
+ The mean of buying 1000 shares is 0.01981500000000002 with standard deviation as 0.03149320839482699
