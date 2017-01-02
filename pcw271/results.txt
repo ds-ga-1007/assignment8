@@ -1,0 +1,4 @@
+The mean value of position 1 is 0.0194918 and the SD value is 0.0316519909762
+The mean value of position 10 is 0.01766 and the SD value is 0.0990630324591
+The mean value of position 100 is 0.01994 and the SD value is 0.31523704795
+The mean value of position 1000 is 0.0212 and the SD value is 0.999775254745
