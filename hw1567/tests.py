@@ -1,43 +1,53 @@
 import unittest
-from investment import *
+import validate_input as i
+import investment.py as Inv
 
-class tests(unittest.TestCase):
 
-	"""Unit-testing class that allows us to run tests with expected outcomes
-	Run the test in the project's root directory
-	with the following command:
-		$ python -m unittest discover
-	"""
-	def test_constructor(self):
+#Investment class test
 
-	#unit tests for the investment constructor that pass input to 
-	#arguments positoins and num_trials
+class Investment_test_case(unittest.TestCase):
+    def setUp(self):
+        print('In investment setUp')
+        self.test_investment = Inv.Investment(10)
+    def tearDown(self):
+        print('In investment tearDown')
+        del self.test_investment
 
-		self.assertEqual(investment([1, 10, 100], 1000).positions, [1, 10, 100])
-		self.assertEqual(investment([1, 10, 100], 1000).num_trials, 1000)
+class Test_investment(Investment_test_case):
+    def test_investment_exception(self):
+        self.assertEqual(self.test_investment.position_value, 100)
 
-	def test_stimulate(self):
+#validate_input tests
 
-		"""unit tests for testing stimulate method.
-			We test the each value of the return dictionary 'result' has the same length as
-			num_trials, and every element in the value of dictionary 'result' bigger than 
-			or equal to -1, and less than or equal to 1 
-		"""
-		a = investment([1, 10, 100], 1000)
-		result = a.stimulate([1000.0, 100.0, 10.0], 1000) 
+class Reject_irregular_characters_test_case(unittest.TestCase):
+    def setUp(self):
+        print('In reject irregular characters setUp')
+        self.invalid_input = '[1, 10, 1OO, 1000]'
+    
+    def tearDown(self):
+        print('In reject irregular characters tearDown')
+        del self.invalid_input
 
-		self.assertEqual(len(result[1]), 1000)
-		self.assertEqual(len(result[10]), 1000)
-		self.assertEqual(len(result[100]), 1000)
+class Test_reject_irregular_characters(Reject_irregular_characters_test_case):
+    def test_exception(self):
+        self.failUnlessRaises(Exception, i.reject_irregular_characters, self.invalid_input)
 
-		self.assertTrue(result[1].all() <= 1)
-		self.assertTrue(result[1].all() >= -1)
+class Parse_input_test_case(unittest.TestCase):
+    def setUp(self):
+        print('In parse input setUp')
+        self.valid_input = '[1, 10, 100, 1000]'
+        self.valid_output = ['1', '10', '100', '1000']
+        self.invalid_input = '1 10 100 1000'
+    
+    def tearDown(self):
+        print('In parse input tearDown')
+        del self.valid_input
+        del self.invalid_input
 
-		self.assertTrue(result[10].all() <= 1)
-		self.assertTrue(result[10].all() >= -1)
+class Test_parse_input(Parse_input_test_case):
+    def test_exception(self):
+        self.failUnlessRaises(Exception, i.parse_input, self.invalid_input)
+    
+    def test_valid(self):
+        self.assertEqual(i.parse_input(self.valid_input), self.valid_output)
 
-		self.assertTrue(result[100].all() <= 1)
-		self.assertTrue(result[100].all() >= -1)
-
-if __name__ == "__main__":
-    unittest.main()

@@ -1,11 +1,5 @@
-'''
-Created on Nov 27, 2016
-
-@author: Caroline
-'''
 import unittest
-import validate_input as i
-import Investment as Inv
+import investment.py as Inv
 import invest as v
 
 #Investment class test
