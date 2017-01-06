@@ -74,7 +74,7 @@ class daily_investment_return:
             self.make_denomination_histogram(trials[i], self.denominations[i])
 
     def write_results_to_file(self, trials):
-        #Write mean as well as standard deviation to a file and save it into text
+        #Write mean as well as standard deviation to a file and save it into txt
         f = open('results.txt', 'w')
         for i in range(0, len(self.denominations)):
             denomination = self.denominations[i]
