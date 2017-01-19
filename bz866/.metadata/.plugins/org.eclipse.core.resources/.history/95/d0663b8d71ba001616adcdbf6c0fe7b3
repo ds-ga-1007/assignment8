@@ -1,0 +1,50 @@
+'''
+Created on 2016年12月4日
+
+@author: EricTseng
+'''
+
+import numpy as np
+import matplotlib.pyplot as plt
+from Investment.exp_handle import *
+
+class trialInput(object):
+    def __init__(self, positionList, num_trials):  
+        if not isinstance(positionList, list):
+            raise InvalidListError()
+        else:
+            denominations = [1000,100,10,1]
+            for i in range(len(positionList)):
+                if 1000/positionList[i] != denominations[i]:
+                    raise PositionError()
+        if not isinstance(num_trials, int):
+            raise ValueError() 
+        
+        self.positionList = positionList
+        self.num_trials = num_trials
+        
+    def simulate(self):
+        f = open('results.txt', 'w')
+        for p in self.positionList:
+            cumu_ret=np.zeros(self.num_trials)
+            daily_ret=np.zeros(self.num_trials)
+            for t in range(self.num_trials):
+                cumu_num = 0
+                for i in range(int(1000/p)):
+                    random_num = np.random.rand()
+                    if (0 <= random_num <= 0.51):
+                        cumu_num = cumu_num + 2 * p
+                    elif (1 > random_num > 0.51):
+                        cumu_num = cumu_num 
+                cumu_ret[t]=cumu_num
+                daily_ret[t]=(cumu_ret[t]/1000)-1
+            plt.clf()
+            plt.hist(daily_ret,100,range=[-1,1])
+            plt.xlabel('Daily Returns')
+            plt.title('Histogram of Daily Returns for position = ' + str(p))
+            plt.savefig('histogram_'+'{:04d}'.format(p)+'_pos.pdf')
+            mean_ret = np.mean(daily_ret)
+            std_ret = np.std(daily_ret)
+            f.write('mean of return for position ' + str(p) + ' : ' + str(mean_ret) + '\n')
+            f.write('std of return for position ' + str(p) + ' : ' + str(std_ret) + '\n')
+        f.close() 

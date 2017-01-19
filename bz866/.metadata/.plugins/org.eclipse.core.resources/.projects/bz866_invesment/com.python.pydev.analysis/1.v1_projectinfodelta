@@ -1,0 +1,10 @@
+INSTUPInvestment.investment
+/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/investment.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&3|6|2|5&&2|7|2|1
+positionList=4
+trialInput=1
+num_trials=6
+__init__=3
+stimulate=7
+Investment.investment=2
+trialInput.__init__=5

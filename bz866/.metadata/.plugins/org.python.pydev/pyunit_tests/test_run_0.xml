@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 0" tests="0" total_time="Finished in: 0.00 secs."/>
+<test location="/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py" status="error" test="test" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "/Applications/Eclipse 2.app/Contents/Eclipse/plugins/org.python.pydev_5.3.1.201610311318/pysrc/_pydev_runfiles/pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+  File "/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py", line 10, in <module>
+    from investment.investment import *
+ImportError: No module named 'investment.investment'; 'investment' is not a package
+ERROR: Module: test could not be imported (file: /Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py).
+]]></stderr>
+</test>
+<launch mode="debug">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="bz866_invesment test.py"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

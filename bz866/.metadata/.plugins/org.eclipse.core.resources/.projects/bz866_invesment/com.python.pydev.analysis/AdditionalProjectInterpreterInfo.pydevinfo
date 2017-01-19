@@ -1,0 +1,41 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/.metadata/.plugins/org.eclipse.core.resources/.projects/bz866_invesment/com.python.pydev.analysis/v2_indexcache
+Investment.assignment8|1480893217000000000|/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/assignment8.py
+Investment.__init__|1480867692000000000|/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/__init__.py
+Investment.test|1480893178000000000|/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/test.py
+Investment.exp_handle|1480893391000000000|/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/exp_handle.py
+Investment.investment|1480893480000000000|/Users/EricTseng/Desktop/Programming_for_DS/week9/assignment8/assignment8/bz866/bz866_invesment/Investment/investment.py
+-- END DISKCACHE
+-- START DICTIONARY
+10
+7=PositionError
+10=tests
+8=IntegerError
+2=Investment.assignment8
+5=trialInput
+3=Investment.test
+1=Investment.exp_handle
+4=Investment.investment
+6=InvalidListError
+9=trialInput.__init__
+-- END DICTIONARY
+-- START TREE 1
+7
+int|1|IntegerError!9@
+inv|1|InvalidListError!9@
+num|1|num_trials!19@
+pos|2|PositionError!9@positions!19@
+sti|1|stimulationInit!19@
+tes|1|tests!25@
+tri|1|trialInput!33@
+-- END TREE
+-- START TREE 2
+6
+__i|1|__init__!5&34@
+__s|3|__str__!6&10@__str__!7&10@__str__!8&10@
+num|1|num_trials!9&35@
+pos|1|positionList!9&35@
+sti|1|stimulate!5&34@
+tes|2|test_stimulate!10&26@test_constructor!10&26@
+-- END TREE
